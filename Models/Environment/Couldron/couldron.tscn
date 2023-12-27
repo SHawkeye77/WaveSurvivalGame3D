@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg4fwo5ob52h"]
+
+[ext_resource type="ArrayMesh" uid="uid://c24rs1y71s8fx" path="res://Models/Environment/Couldron/Cauldron.obj" id="1_wxni0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8v8b0"]
+height = 1.04622
+radius = 0.853067
+
+[node name="Couldron" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_wxni0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00536042, -0.0602417, 0)
+shape = SubResource("CylinderShape3D_8v8b0")

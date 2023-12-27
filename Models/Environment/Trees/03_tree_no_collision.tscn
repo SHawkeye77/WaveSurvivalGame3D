@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b72l87tc4qqyd"]
+
+[ext_resource type="ArrayMesh" uid="uid://dubw82l43yufy" path="res://Models/Environment/Trees/Tree_Green_03.obj" id="1_e7tso"]
+[ext_resource type="Material" uid="uid://b7e4dohjn3u4e" path="res://Models/Environment/Trees/tree_leaves.tres" id="2_ptcwb"]
+
+[node name="03TreeNoCollision" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_e7tso")
+surface_material_override/0 = ExtResource("2_ptcwb")

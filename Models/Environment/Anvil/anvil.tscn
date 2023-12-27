@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg2q242cbin0w"]
+
+[ext_resource type="ArrayMesh" uid="uid://dpeps6cacp8r2" path="res://Models/Environment/Anvil/Anvil.obj" id="1_nd3kt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q0o5"]
+size = Vector3(2.06115, 2.32677, 1.14133)
+
+[node name="Anvil" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_nd3kt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278936, -0.631935, 0.0393845)
+shape = SubResource("BoxShape3D_7q0o5")

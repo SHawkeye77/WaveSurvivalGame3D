@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2f0432n45ggu"]
+
+[ext_resource type="ArrayMesh" uid="uid://bt8lmfu0dd3xj" path="res://Models/Environment/TerrainVortex/TerrainVertex.obj" id="1_f2bbu"]
+
+[node name="TerrainVortex" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_f2bbu")

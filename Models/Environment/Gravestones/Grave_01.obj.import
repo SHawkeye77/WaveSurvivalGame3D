@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://s45pusdx2xd1"
+path="res://.godot/imported/Grave_01.obj-d499f5c53ed0466d81d5acfed40a9bac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Grave_01.obj-d499f5c53ed0466d81d5acfed40a9bac.mesh"]
+
+source_file="res://Models/Environment/Gravestones/Grave_01.obj"
+dest_files=["res://.godot/imported/Grave_01.obj-d499f5c53ed0466d81d5acfed40a9bac.mesh", "res://.godot/imported/Grave_01.obj-d499f5c53ed0466d81d5acfed40a9bac.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

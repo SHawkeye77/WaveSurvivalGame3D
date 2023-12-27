@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo6mediikotjy"]
+
+[ext_resource type="ArrayMesh" uid="uid://b50ht0ce0a63j" path="res://Models/Environment/Box/TreasureBox_closed.obj" id="1_eppov"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3mrb3"]
+size = Vector3(62.2789, 23.7843, 41.3046)
+
+[node name="Box" type="StaticBody3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_eppov")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36575, -5.87557)
+shape = SubResource("BoxShape3D_3mrb3")

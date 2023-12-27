@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8j864obxp2h"
+path="res://.godot/imported/workbench.obj-1708511b31eef676c3aa9ec23c053b06.mesh"
+
+[deps]
+
+files=["res://.godot/imported/workbench.obj-1708511b31eef676c3aa9ec23c053b06.mesh"]
+
+source_file="res://Models/InteractableItems/ReloadSpeedUpgrade/workbench.obj"
+dest_files=["res://.godot/imported/workbench.obj-1708511b31eef676c3aa9ec23c053b06.mesh", "res://.godot/imported/workbench.obj-1708511b31eef676c3aa9ec23c053b06.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

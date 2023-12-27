@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://nhvf5s5dwm8m"]
+
+[ext_resource type="Script" path="res://Screens/start_screen.gd" id="1_ihrqp"]
+[ext_resource type="FontFile" uid="uid://b8mkolcwso8u7" path="res://Fonts/who asks satan.ttf" id="2_cayys"]
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource("1_ihrqp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.8
+anchor_bottom = 16.2
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.0117647, 0, 1)
+
+[node name="GameTitleLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.8
+anchor_bottom = 16.2
+offset_left = 341.0
+offset_top = 11.0
+offset_right = -360.0
+offset_bottom = -579.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_cayys")
+theme_override_font_sizes/font_size = 70
+text = "Wave Survival 3D Game"
+horizontal_alignment = 1
+
+[node name="AttributionLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 404.0
+offset_top = 94.0
+offset_right = 682.0
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_cayys")
+theme_override_font_sizes/font_size = 35
+text = "Coded by SHawkeye77"
+horizontal_alignment = 1
+
+[node name="ControlsLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 289.0
+offset_top = 241.0
+offset_right = 794.0
+offset_bottom = 514.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_cayys")
+theme_override_font_sizes/font_size = 40
+text = "Controls
+WASD: Move
+Shift: Sprint
+Mouse Move: Aim
+Left Click: Shoot"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 547.0
+offset_right = 686.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_cayys")
+theme_override_font_sizes/font_size = 45
+text = "Play"
+
+[connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]

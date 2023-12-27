@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://btkd5ay2h0v0d"]
+
+[ext_resource type="ArrayMesh" uid="uid://3suyrycb4khi" path="res://Models/Environment/Potion/Poison.obj" id="1_jyftv"]
+
+[node name="Potion" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_jyftv")

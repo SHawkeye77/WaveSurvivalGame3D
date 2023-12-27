@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcs4tdmtl0n7t"]
+
+[ext_resource type="ArrayMesh" uid="uid://dql3xa0is36dn" path="res://Models/Weapons/Sniper/SniperRifle_02.obj" id="1_7r6ft"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1m7b"]
+albedo_color = Color(0.180392, 0.298039, 0.027451, 1)
+
+[sub_resource type="Animation" id="Animation_n06f6"]
+resource_name = "SniperShoot"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.01, 0.18, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.15), Vector3(0, 0, -0.05), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.18, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.436332, 0, 0), Vector3(-0.0872665, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lkb1l"]
+_data = {
+"SniperShoot": SubResource("Animation_n06f6")
+}
+
+[node name="Sniper" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("1_7r6ft")
+surface_material_override/0 = SubResource("StandardMaterial3D_s1m7b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lkb1l")
+}
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00104659, 0.0183701, -1.17794)
+target_position = Vector3(0, 0, -1)

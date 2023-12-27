@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bq54kskbmmxsi"
+path="res://.godot/imported/GraveYard_Door.obj-6e69a17c91c3c6f469faa803b42aa68e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GraveYard_Door.obj-6e69a17c91c3c6f469faa803b42aa68e.mesh"]
+
+source_file="res://Models/Environment/GraveyardFences/GraveYard_Door.obj"
+dest_files=["res://.godot/imported/GraveYard_Door.obj-6e69a17c91c3c6f469faa803b42aa68e.mesh", "res://.godot/imported/GraveYard_Door.obj-6e69a17c91c3c6f469faa803b42aa68e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

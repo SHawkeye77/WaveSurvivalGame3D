@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b50ht0ce0a63j"
+path="res://.godot/imported/TreasureBox_closed.obj-1524d7560996859feb296d3b5b261658.mesh"
+
+[deps]
+
+files=["res://.godot/imported/TreasureBox_closed.obj-1524d7560996859feb296d3b5b261658.mesh"]
+
+source_file="res://Models/Environment/Box/TreasureBox_closed.obj"
+dest_files=["res://.godot/imported/TreasureBox_closed.obj-1524d7560996859feb296d3b5b261658.mesh", "res://.godot/imported/TreasureBox_closed.obj-1524d7560996859feb296d3b5b261658.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

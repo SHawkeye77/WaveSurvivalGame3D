@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://3p7nwxrthtdj"]
+
+[ext_resource type="ArrayMesh" uid="uid://cx2w8a5pi72bd" path="res://Models/Environment/Streetlight/Wooden Lantern.obj" id="1_fosmh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u37p"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1llr"]
+size = Vector3(2.01012, 10.165, 2.02166)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hm7r1"]
+size = Vector3(2.01012, 1.82503, 6.81931)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bf4sy"]
+size = Vector3(2.01012, 4.19137, 1.13657)
+
+[node name="Streetlight" type="StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_fosmh")
+surface_material_override/2 = SubResource("StandardMaterial3D_4u37p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.01014, 0)
+shape = SubResource("BoxShape3D_g1llr")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.76021, -1.81149)
+shape = SubResource("BoxShape3D_hm7r1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.22491, -4.61985)
+shape = SubResource("BoxShape3D_bf4sy")

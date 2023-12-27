@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b4agytq3gf4kj"
+path="res://.godot/imported/Fence_02_Graveyard.obj-e17c11655a4dc373e59e3a47de79e538.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Fence_02_Graveyard.obj-e17c11655a4dc373e59e3a47de79e538.mesh"]
+
+source_file="res://Models/Environment/GraveyardFences/Fence_02_Graveyard.obj"
+dest_files=["res://.godot/imported/Fence_02_Graveyard.obj-e17c11655a4dc373e59e3a47de79e538.mesh", "res://.godot/imported/Fence_02_Graveyard.obj-e17c11655a4dc373e59e3a47de79e538.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

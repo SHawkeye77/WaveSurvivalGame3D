@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8jxif4c22xft"
+path="res://.godot/imported/Parchament_open.obj-378ed72429a0f8c40c04bd277caa1643.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Parchament_open.obj-378ed72429a0f8c40c04bd277caa1643.mesh"]
+
+source_file="res://Models/Environment/Parchment/Parchament_open.obj"
+dest_files=["res://.godot/imported/Parchament_open.obj-378ed72429a0f8c40c04bd277caa1643.mesh", "res://.godot/imported/Parchament_open.obj-378ed72429a0f8c40c04bd277caa1643.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

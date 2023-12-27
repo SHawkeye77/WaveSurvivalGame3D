@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf54vg8b4u4ud"]
+
+[ext_resource type="ArrayMesh" uid="uid://bq54kskbmmxsi" path="res://Models/Environment/GraveyardFences/GraveYard_Door.obj" id="1_e1va2"]
+[ext_resource type="Material" uid="uid://jfdp4p1su0kc" path="res://Models/Environment/GraveyardFences/fence_silver.tres" id="2_k7gdk"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jjl3j"]
+points = PackedVector3Array(2.96996, 0.769906, 1.59921, 2.50599, 0.769906, 1.59921, 2.96996, -2.10721, 1.59921, 2.96996, 2.06935, -1.09215, 2.50599, -2.01417, -1.46361, 2.96996, -2.01417, -1.46361, 2.50599, -2.10721, 1.59921, 2.50599, 2.16194, -0.999507, 2.78433, 2.44062, -0.999507, 2.96996, 0.676866, -1.46361, 2.59883, 2.06935, -1.27773, 2.87712, 2.06935, -1.27773, 2.69162, 2.44062, -0.999507, 2.50599, 2.06935, -1.18509, 2.87712, 2.34758, -0.999507, 2.50599, -2.10721, 0.949233, 2.96996, -2.10721, 0.949233, 2.59883, 2.34758, -0.999507, 2.69162, 2.44062, -1.09215, 2.96996, 2.06935, -0.999507, 2.87712, 2.34758, -1.09215)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_edyhq"]
+points = PackedVector3Array(-2.50599, 0.769906, 1.59921, -2.96996, 0.769906, 1.59921, -2.50599, -2.10721, 1.59921, -2.96996, -2.01417, -1.46361, -2.87712, 2.34758, -1.09215, -2.96996, -2.10721, 1.59921, -2.50599, -2.01417, -1.46361, -2.50599, 2.16194, -1.09215, -2.96996, 0.676866, -1.46361, -2.69162, 2.44062, -0.999507, -2.96996, 2.06935, -1.09215, -2.59883, 2.06935, -1.27773, -2.87712, 2.06935, -1.27773, -2.96996, -2.10721, 0.949233, -2.87712, 2.34758, -0.999507, -2.59883, 2.34758, -0.999507, -2.50599, 2.06935, -1.18509, -2.50599, -2.10721, 0.949233, -2.78433, 2.44062, -0.999507, -2.69162, 2.44062, -1.09215, -2.50599, 2.16194, -0.999507, -2.96996, 2.06935, -0.999507)
+
+[node name="GraveyardFenceDoor" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_e1va2")
+surface_material_override/0 = ExtResource("2_k7gdk")
+surface_material_override/1 = ExtResource("2_k7gdk")
+
+[node name="@CollisionShape3D@65217" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_jjl3j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_edyhq")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://jx1jkahfth6u"]
+
+[ext_resource type="ArrayMesh" uid="uid://4lred33txlgd" path="res://Models/Environment/WoodenFences/Fence_01.obj" id="1_wxux7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xfge7"]
+size = Vector3(0.423445, 1.34513, 2.30456)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrtte"]
+size = Vector3(0.343651, 0.52409, 0.349754)
+
+[node name="WoodenFence" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_wxux7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.660158, 0)
+shape = SubResource("BoxShape3D_xfge7")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54728, 0)
+shape = SubResource("BoxShape3D_qrtte")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3gn77ac0oywi"]
+
+[ext_resource type="ArrayMesh" uid="uid://ch2s7pjmngeni" path="res://Models/Environment/Road/road.obj" id="1_ejf50"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa0u7"]
+albedo_color = Color(0.0705882, 0.0431373, 0.00392157, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jeif"]
+albedo_color = Color(0.0705882, 0.0431373, 0.00392157, 1)
+
+[node name="Road" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_ejf50")
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0u7")
+surface_material_override/1 = SubResource("StandardMaterial3D_2jeif")

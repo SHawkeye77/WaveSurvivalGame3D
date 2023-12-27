@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fl1ledj1mbn3"
+path="res://.godot/imported/Plate.obj-e1c10c11c9d6d4be311e061a3076ac23.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Plate.obj-e1c10c11c9d6d4be311e061a3076ac23.mesh"]
+
+source_file="res://Models/Environment/Plate/Plate.obj"
+dest_files=["res://.godot/imported/Plate.obj-e1c10c11c9d6d4be311e061a3076ac23.mesh", "res://.godot/imported/Plate.obj-e1c10c11c9d6d4be311e061a3076ac23.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

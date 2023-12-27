@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://7rsq80uqd3ke"]
+
+[ext_resource type="ArrayMesh" uid="uid://cirdhe4yowyhl" path="res://Models/Environment/Graves/grave-border.obj" id="1_lryjr"]
+[ext_resource type="Material" uid="uid://ct7gatbhwatd2" path="res://Models/Environment/Graves/grave_dirt.tres" id="2_1r2l4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_182h4"]
+size = Vector3(0.480845, 0.0668635, 1.18323)
+
+[node name="GraveOutline" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+mesh = ExtResource("1_lryjr")
+surface_material_override/0 = ExtResource("2_1r2l4")
+surface_material_override/1 = ExtResource("2_1r2l4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.124702, 0)
+shape = SubResource("BoxShape3D_182h4")

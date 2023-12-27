@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxlxem5mrsgx0"]
+
+[ext_resource type="ArrayMesh" uid="uid://biysst8ekx21d" path="res://Models/Environment/GraveyardFences/Fence_01_Graveyard.obj" id="1_laet0"]
+[ext_resource type="Material" uid="uid://jfdp4p1su0kc" path="res://Models/Environment/GraveyardFences/fence_silver.tres" id="2_usx7v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8lko"]
+size = Vector3(4.73144, 3.29939, 1.35022)
+
+[node name="Graveyard01Fence" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_laet0")
+surface_material_override/0 = ExtResource("2_usx7v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29201, 1.73353, 0.00507379)
+shape = SubResource("BoxShape3D_x8lko")

@@ -1,0 +1,82 @@
+extends Node
+
+# UI
+const UI_SENSITIVITY = 0.003
+const UI_VERTICAL_ROTATION_MIN = -40  # In degrees
+const UI_VERTICAL_ROTATION_MAX = 60  # In degrees
+const UI_HIT_FLASH_EFFECT = 0.2
+
+# World
+const WORLD_GRAVITY = 9.8
+const WORLD_TIME_BETWEEN_WAVES = 10.0
+
+# Player
+const PLAYER_STARTING_HEALTH = 100
+const PLAYER_WALK_SPEED = 5.0
+const PLAYER_SPRINT_SPEED = 8.0
+const PLAYER_JUMP_VELOCITY = 4.5
+const PLAYER_BOB_FREQUENCY = 2.0
+const PLAYER_BOB_AMPLITUDE = 0.08
+const PLAYER_INERTIA = 3.0
+const PLAYER_GROUND_FRICTION = 7.0
+const PLAYER_BASE_FOV = 75.0
+const PLAYER_FOV_CHANGE = 1.5
+const PLAYER_HIT_STAGGER = 8.0
+const PLAYER_BRAINS_STARTING_AMOUNT = 999
+
+# Zombie
+const ZOMBIE_SPEED = 5.0
+const ZOMBIE_ATTACK_DAMAGE = 10
+const ZOMBIE_ATTACK_RANGE = 2.5
+const ZOMBIE_ATTACK_RANGE_BUFFER = 2.0
+const ZOMBIE_TURNING_SPEED = 10.0
+const ZOMBIE_STARTING_HEALTH = 6
+const ZOMBIE_BRAIN_AMOUNT = 1
+const ZOMBIE_GROAN_TIMER_MIN = 5
+const ZOMBIE_GROAN_TIMER_MAX = 15
+
+# Bullet
+const BULLET_SPEED = 40.0
+const BULLET_AUTOMATIC_DESPAWN_TIMER = 10.0
+const BULLET_HEADSHOT_MULTIPLIER = 2
+
+# Weapons
+const WEAPON_STARTING = WEAPONS.PISTOL
+enum WEAPONS {
+	PISTOL,
+	REPEATER,
+	SNIPER,
+	SHOTGUN,
+}
+
+# Pistol
+const PISTOL_RELOAD_TIMERS = [1.0, 0.8, 0.6, 0.5, 0.4]
+const PISTOL_DAMAGE = [3, 3, 4, 4, 5, 5]
+
+# Repeater
+const REPEATER_RELOAD_TIMERS = [1.5, 1.3, 1.0, 0.8, 0.5]
+const REPEATER_DAMAGE = [2, 2, 3, 3, 4, 4]
+const REPEATER_BULLETS_PER_CYCLE = 4
+const REPEATER_TIME_BETWEEN_BULLETS = 0.1
+
+# Sniper
+const SNIPER_RELOAD_TIMERS = [1.5, 1.3, 1.0, 0.8, 0.5]
+const SNIPER_DAMAGE = [3, 4, 5, 6, 7, 8]
+
+# Shotgun
+const SHOTGUN_RELOAD_TIMERS = [1.5, 1.3, 1.0, 0.8, 0.5]
+const SHOTGUN_DAMAGE = [2, 2, 3, 3, 4, 4]
+
+# Mystery Box
+const MYSTERY_BOX_PRICE = 10
+const MYSTERY_BOX_WAIT_TIME = 6.5
+
+# Reload speed upgrade
+const RELOAD_SPEED_UPGRADE_PRICE = 10
+
+# Bullet damage upgrade
+const BULLET_DAMAGE_UPGRADE_PRICE = 10
+
+# Game stats
+var finalWave = -1
+var maxWave = -1

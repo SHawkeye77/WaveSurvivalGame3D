@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl7qvijh1rtjs"]
+
+[ext_resource type="ArrayMesh" uid="uid://s45pusdx2xd1" path="res://Models/Environment/Gravestones/Grave_01.obj" id="1_kvaiw"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5xuq1"]
+points = PackedVector3Array(0.109957, 0.760651, 0.237463, 0.689868, -0.403732, 0.429456, 0.330007, 0.645172, 0.237463, 0.109957, 0.760651, -0.116547, -0.110092, 0.760651, 0.237463, 0.689868, -0.545683, 0.429456, 0.689868, -0.403732, -0.308468, 0.550192, 0.420096, 0.237463, -0.690003, -0.403732, 0.429456, 0.330007, 0.645172, -0.116547, -0.110092, 0.760651, -0.116547, -0.330142, 0.645172, 0.237463, 0.689868, -0.545683, -0.308468, -0.690003, -0.545683, 0.429456, 0.550192, 0.420096, -0.116547, -0.690003, -0.403732, -0.308468, -0.550327, 0.420096, 0.237463, -0.330142, 0.645172, -0.116547, -0.690003, -0.545683, -0.308468, -0.550327, 0.420096, -0.116547)
+
+[node name="01Gravestone" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_kvaiw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_5xuq1")

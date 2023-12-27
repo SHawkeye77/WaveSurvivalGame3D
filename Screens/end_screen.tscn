@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch37yptmc10ch"]
+
+[ext_resource type="Script" path="res://Screens/end_screen.gd" id="1_0vtiw"]
+[ext_resource type="FontFile" uid="uid://b8mkolcwso8u7" path="res://Fonts/who asks satan.ttf" id="2_j6pbh"]
+
+[node name="EndScreen" type="Node2D"]
+script = ExtResource("1_0vtiw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.8
+anchor_bottom = 16.2
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.193911, 0.0115222, 0, 1)
+
+[node name="GameOverLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.8
+anchor_bottom = 16.2
+offset_left = 341.0
+offset_top = 11.0
+offset_right = -360.0
+offset_bottom = -579.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.873541, 0.156004, 3.85046e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_j6pbh")
+theme_override_font_sizes/font_size = 65
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="GameSummaryLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.8
+anchor_bottom = 16.2
+offset_left = 239.0
+offset_top = 131.0
+offset_right = -249.0
+offset_bottom = -454.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.873541, 0.156004, 3.85046e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_j6pbh")
+theme_override_font_sizes/font_size = 50
+text = "WILL BE FILLED IN DURING GAME"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainMenuButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 540.0
+offset_right = 722.0
+offset_bottom = 623.0
+theme_override_colors/font_color = Color(0.873541, 0.156004, 3.85046e-07, 1)
+theme_override_fonts/font = ExtResource("2_j6pbh")
+theme_override_font_sizes/font_size = 45
+text = "Main Menu"
+
+[connection signal="pressed" from="Control/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

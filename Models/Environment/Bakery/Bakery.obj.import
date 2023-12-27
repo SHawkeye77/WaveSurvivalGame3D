@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://csntfll5yxcao"
+path="res://.godot/imported/Bakery.obj-9b27e5c1057404424e656611a54bc42b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bakery.obj-9b27e5c1057404424e656611a54bc42b.mesh"]
+
+source_file="res://Models/Environment/Bakery/Bakery.obj"
+dest_files=["res://.godot/imported/Bakery.obj-9b27e5c1057404424e656611a54bc42b.mesh", "res://.godot/imported/Bakery.obj-9b27e5c1057404424e656611a54bc42b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

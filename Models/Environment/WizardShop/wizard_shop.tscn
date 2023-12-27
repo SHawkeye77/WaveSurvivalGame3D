@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3m17brp1yk6e"]
+
+[ext_resource type="ArrayMesh" uid="uid://cdfcylcdns5w6" path="res://Models/Environment/WizardShop/WizardShop.obj" id="1_8n20u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a65ue"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y1ylo"]
+points = PackedVector3Array(-0.357862, 2.88167, -6.34659, -2.04559, 2.9462, 2.4326, -4.56652, -3.23813, -1.7544, 4.27845, -3.05103, -0.607126, 3.28929, -3.05761, -4.75562, 1.64697, -3.09536, 2.26318, -3.52632, 4.09173, -3.26389, -3.35572, -3.06163, -4.7587, 3.66065, 4.12175, -2.771, 1.95019, 4.06333, 1.36907, -2.01535, -3.04229, 2.20024, -4.51678, 2.92093, -0.604249, 3.64749, 2.93739, -4.77541, -3.70643, 2.93434, -4.77194, 1.98291, 2.9462, 2.4326, 0.300238, -3.05526, -5.91524, -2.7007, 4.10083, 0.904389, 0.300704, 4.08574, -5.58879, 4.46203, 2.92519, -0.601751, -4.41203, -3.11036, -0.58395, 2.17441, -3.13734, 2.14298, 0.295531, 2.88426, -6.35131, 4.2961, -3.06562, -1.43389, -0.197797, 4.09498, 1.89887, 3.48979, -3.09304, -4.61488, -2.00159, 4.0431, -5.05291, -0.362677, -3.05259, -5.91232, 4.46899, 2.92893, -1.26626, -4.5211, 2.92325, -1.26802, 3.28079, 4.07394, -0.111723, 2.43104, 4.04311, -4.72495, -3.68556, -3.0585, -4.42366)
+
+[node name="WizardShop" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_8n20u")
+surface_material_override/3 = SubResource("StandardMaterial3D_a65ue")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_y1ylo")

@@ -1,0 +1,493 @@
+[gd_scene load_steps=18 format=3 uid="uid://b8f3vvq66u0pf"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_myr17"]
+[ext_resource type="PackedScene" uid="uid://c1l6d7h558y4p" path="res://Models/Weapons/Pistol/pistol.tscn" id="2_7spcs"]
+[ext_resource type="PackedScene" uid="uid://bk1csyakmrk6j" path="res://Models/Weapons/Repeater/repeater.tscn" id="3_rcxqu"]
+[ext_resource type="Texture2D" uid="uid://82dmnw1s7ane" path="res://Textures/brain.png" id="4_3rou5"]
+[ext_resource type="PackedScene" uid="uid://dcs4tdmtl0n7t" path="res://Models/Weapons/Sniper/sniper.tscn" id="4_30nxb"]
+[ext_resource type="PackedScene" uid="uid://bfj0o16y5fsya" path="res://Models/Weapons/Shotgun/shotgun.tscn" id="5_wwdqq"]
+[ext_resource type="FontFile" uid="uid://b8mkolcwso8u7" path="res://Fonts/who asks satan.ttf" id="5_y4684"]
+[ext_resource type="PackedScene" uid="uid://c483m3wyohdvn" path="res://Utility/player_interactor.tscn" id="6_hrehw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l1d56"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eamf5"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="Animation" id="Animation_axvmk"]
+resource_name = "LowerPistol"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Pistol:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.51, 1.145, -0.67), Vector3(0.51, 0, -0.67)]
+}
+
+[sub_resource type="Animation" id="Animation_dtjuw"]
+resource_name = "LowerRepeater"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Repeater:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.437, 1.175, -0.745), Vector3(0.437, 0, -0.745)]
+}
+
+[sub_resource type="Animation" id="Animation_uiwm0"]
+resource_name = "LowerShotgun"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.348, 1.204, -0.656), Vector3(0.348, 0, -0.656)]
+}
+
+[sub_resource type="Animation" id="Animation_q8bl4"]
+resource_name = "LowerSniper"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Sniper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.473, 1.177, -0.645), Vector3(0.473, 0, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qccdu"]
+_data = {
+"LowerPistol": SubResource("Animation_axvmk"),
+"LowerRepeater": SubResource("Animation_dtjuw"),
+"LowerShotgun": SubResource("Animation_uiwm0"),
+"LowerSniper": SubResource("Animation_q8bl4")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5el7e"]
+size = Vector3(1, 1.97843, 3.45157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pnbk"]
+bg_color = Color(0.705882, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_myr17")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_l1d56")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_eamf5")
+
+[node name="Head" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42968, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+unique_name_in_owner = true
+
+[node name="WeaponSwitchAnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_qccdu")
+}
+
+[node name="Weapons" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.42968, 0)
+
+[node name="Pistol" parent="Head/Camera3D/Weapons" instance=ExtResource("2_7spcs")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51, 0, -0.67)
+
+[node name="Repeater" parent="Head/Camera3D/Weapons" instance=ExtResource("3_rcxqu")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.437, 0, -0.745)
+
+[node name="Sniper" parent="Head/Camera3D/Weapons" instance=ExtResource("4_30nxb")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.473, 0, 0.5)
+
+[node name="Shotgun" parent="Head/Camera3D/Weapons" instance=ExtResource("5_wwdqq")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.348, 0, -0.656)
+
+[node name="PlayerInteractor" parent="Head/Camera3D" instance=ExtResource("6_hrehw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.42968, 0)
+
+[node name="CollisionShape3D" parent="Head/Camera3D/PlayerInteractor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.995625, -1.71969)
+shape = SubResource("BoxShape3D_5el7e")
+
+[node name="WeaponTimers" type="Node3D" parent="."]
+
+[node name="PistolReloadTimer" type="Timer" parent="WeaponTimers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="RepeaterReloadTimer" type="Timer" parent="WeaponTimers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="SniperReloadTimer" type="Timer" parent="WeaponTimers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="ShotgunReloadTimer" type="Timer" parent="WeaponTimers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="RepeaterTimeBetweenBulletsTimer" type="Timer" parent="WeaponTimers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="MysteryBoxTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="PlayerHit" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerHitColorRect" type="ColorRect" parent="PlayerHit"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.760784, 0, 0, 0.27451)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Brains" type="Control" parent="UILayer/UI"]
+anchors_preset = 0
+
+[node name="BrainIconTextureRect" type="TextureRect" parent="UILayer/UI/Brains"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 1928.0
+offset_bottom = 1921.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_3rou5")
+
+[node name="BrainsAmountLabel" type="Label" parent="UILayer/UI/Brains"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 45.0
+offset_top = 5.0
+offset_right = 113.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 40
+text = "999"
+horizontal_alignment = 1
+
+[node name="Health" type="Control" parent="UILayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HealthLabel" type="Label" parent="UILayer/UI/Health"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -344.0
+offset_top = -10.0
+offset_right = -143.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 40
+text = "Hell-th:"
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="UILayer/UI/Health"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 974.0
+offset_top = 6.0
+offset_right = 1139.0
+offset_bottom = 43.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_0pnbk")
+step = 1.0
+show_percentage = false
+
+[node name="Wave" type="Control" parent="UILayer/UI"]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 49.0
+offset_right = 114.0
+offset_bottom = 91.0
+
+[node name="WaveLabel" type="Label" parent="UILayer/UI/Wave"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1010.0
+offset_top = -16.0
+offset_right = 1131.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 40
+text = "Wave: 99"
+horizontal_alignment = 1
+
+[node name="OfferMysteryBoxPanel" type="Panel" parent="UILayer/UI"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 444.0
+offset_top = 202.0
+offset_right = 703.0
+offset_bottom = 391.0
+
+[node name="MysteryBoxPromptLabel" type="Label" parent="UILayer/UI/OfferMysteryBoxPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 236.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 35
+text = "Purchase a mystery gun for VARIABLE credits?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="YesPurchaseMysteryBoxButton" type="Button" parent="UILayer/UI/OfferMysteryBoxPanel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 141.0
+offset_right = 105.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 30
+text = "Yes"
+
+[node name="NoPurchaseMysteryBoxButton" type="Button" parent="UILayer/UI/OfferMysteryBoxPanel"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 141.0
+offset_right = 220.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 30
+text = "No"
+
+[node name="OfferReloadSpeedUpgradePanel" type="Panel" parent="UILayer/UI"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 444.0
+offset_top = 202.0
+offset_right = 703.0
+offset_bottom = 391.0
+
+[node name="ReloadSpeedUpgradePromptLabel" type="Label" parent="UILayer/UI/OfferReloadSpeedUpgradePanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 236.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 35
+text = "STUFF HERE"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="YesPurchaseReloadSpeedUpgradeButton" type="Button" parent="UILayer/UI/OfferReloadSpeedUpgradePanel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 141.0
+offset_right = 105.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 30
+text = "Yes"
+
+[node name="NoPurchaseReloadSpeedUpgradeButton" type="Button" parent="UILayer/UI/OfferReloadSpeedUpgradePanel"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 141.0
+offset_right = 220.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 30
+text = "No"
+
+[node name="OfferBulletDamageUpgradePanel" type="Panel" parent="UILayer/UI"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 444.0
+offset_top = 202.0
+offset_right = 703.0
+offset_bottom = 391.0
+
+[node name="BulletDamageUpgradePromptLabel" type="Label" parent="UILayer/UI/OfferBulletDamageUpgradePanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 233.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 35
+text = "STUFF HERE"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="YesPurchaseBulletDamageUpgradeButton" type="Button" parent="UILayer/UI/OfferBulletDamageUpgradePanel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 141.0
+offset_right = 105.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 30
+text = "Yes"
+
+[node name="NoPurchaseBulletDamageUpgradeButton" type="Button" parent="UILayer/UI/OfferBulletDamageUpgradePanel"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 141.0
+offset_right = 220.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 30
+text = "No"
+
+[node name="NotificationPanel" type="Panel" parent="UILayer/UI"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 443.0
+offset_top = 179.0
+offset_right = 696.0
+offset_bottom = 421.0
+
+[node name="NotificationLabel" type="Label" parent="UILayer/UI/NotificationPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 239.0
+offset_bottom = 99.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 25
+text = "THIS WILL BE USED TO NOTIFY PLAYERS OF STUFF"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NotificationAcknowledgementButton" type="Button" parent="UILayer/UI/NotificationPanel"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 183.0
+offset_right = 171.0
+offset_bottom = 226.0
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y4684")
+theme_override_font_sizes/font_size = 30
+text = "OK"
+
+[connection signal="timeout" from="WeaponTimers/PistolReloadTimer" to="." method="_on_pistol_reload_timer_timeout"]
+[connection signal="timeout" from="WeaponTimers/RepeaterReloadTimer" to="." method="_on_repeater_reload_timer_timeout"]
+[connection signal="timeout" from="WeaponTimers/SniperReloadTimer" to="." method="_on_sniper_reload_timer_timeout"]
+[connection signal="timeout" from="WeaponTimers/ShotgunReloadTimer" to="." method="_on_shotgun_time_between_bullets_timer_timeout"]
+[connection signal="timeout" from="WeaponTimers/RepeaterTimeBetweenBulletsTimer" to="." method="_on_repeater_time_between_bullets_timer_timeout"]
+[connection signal="timeout" from="MysteryBoxTimer" to="." method="_on_mystery_box_timer_timeout"]
+[connection signal="pressed" from="UILayer/UI/OfferMysteryBoxPanel/YesPurchaseMysteryBoxButton" to="." method="_on_yes_purchase_mystery_box_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/OfferMysteryBoxPanel/NoPurchaseMysteryBoxButton" to="." method="_on_no_purchase_mystery_box_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/OfferReloadSpeedUpgradePanel/YesPurchaseReloadSpeedUpgradeButton" to="." method="_on_yes_purchase_reload_speed_upgrade_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/OfferReloadSpeedUpgradePanel/NoPurchaseReloadSpeedUpgradeButton" to="." method="_on_no_purchase_reload_speed_upgrade_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/OfferBulletDamageUpgradePanel/YesPurchaseBulletDamageUpgradeButton" to="." method="_on_yes_purchase_bullet_damage_upgrade_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/OfferBulletDamageUpgradePanel/NoPurchaseBulletDamageUpgradeButton" to="." method="_on_no_purchase_bullet_damage_upgrade_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/NotificationPanel/NotificationAcknowledgementButton" to="." method="_on_notification_acknowledgement_button_pressed"]
+
+[editable path="Head/Camera3D/PlayerInteractor"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://2j5yk3ee7xea"]
+
+[ext_resource type="ArrayMesh" uid="uid://b8jxif4c22xft" path="res://Models/Environment/Parchment/Parchament_open.obj" id="1_cqbo7"]
+
+[node name="Parchment" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+mesh = ExtResource("1_cqbo7")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnj1uk8yqlgdh"]
+
+[ext_resource type="Script" path="res://Utility/wave_spawner.gd" id="1_e3i6w"]
+
+[node name="WaveSpawner" type="Node3D" groups=["WaveSpawner"]]
+script = ExtResource("1_e3i6w")
+
+[node name="SpawnNextEnemyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="StartNewWaveTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="SpawnNextEnemyTimer" to="." method="_on_spawn_next_enemy_timer_timeout"]
+[connection signal="timeout" from="StartNewWaveTimer" to="." method="_on_start_new_wave_timer_timeout"]

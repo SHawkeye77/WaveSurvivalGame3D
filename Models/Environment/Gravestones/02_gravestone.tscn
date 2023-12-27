@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhps4vaqutbkx"]
+
+[ext_resource type="ArrayMesh" uid="uid://cf5buj7gbq0h1" path="res://Models/Environment/Gravestones/Grave_02.obj" id="1_srd28"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5jpq"]
+size = Vector3(0.631715, 2.93991, 0.643245)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mcsuf"]
+size = Vector3(1.32474, 0.664506, 1.01091)
+
+[node name="02Gravestone" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_srd28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_a5jpq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3611, 0)
+shape = SubResource("BoxShape3D_mcsuf")

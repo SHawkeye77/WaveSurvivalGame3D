@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bamcp8ht06xnt"]
+
+[ext_resource type="ArrayMesh" uid="uid://dijm7m8jtfpac" path="res://Models/Environment/Trees/Tree_Green_01.obj" id="1_kwfcd"]
+[ext_resource type="Material" uid="uid://b7e4dohjn3u4e" path="res://Models/Environment/Trees/tree_leaves.tres" id="2_jdefo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fpole"]
+height = 9.24869
+radius = 0.893049
+
+[node name="01Tree" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_kwfcd")
+surface_material_override/1 = ExtResource("2_jdefo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.69289, 0)
+shape = SubResource("CylinderShape3D_fpole")

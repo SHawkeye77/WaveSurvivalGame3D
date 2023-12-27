@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d36kg2g2vgvbb"]
+
+[ext_resource type="ArrayMesh" uid="uid://bukv1o4lupajo" path="res://Models/Environment/Slab/Table_bakery.obj" id="1_1rugc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iclen"]
+size = Vector3(7.84777, 1, 1.88344)
+
+[node name="Slab" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_1rugc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_iclen")

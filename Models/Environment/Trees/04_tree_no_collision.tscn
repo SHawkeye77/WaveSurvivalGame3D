@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyp8ad1oqr7mb"]
+
+[ext_resource type="ArrayMesh" uid="uid://b11r3estht18g" path="res://Models/Environment/Trees/Trunk_03.obj" id="1_8daor"]
+
+[node name="04TreeNoCollision" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_8daor")

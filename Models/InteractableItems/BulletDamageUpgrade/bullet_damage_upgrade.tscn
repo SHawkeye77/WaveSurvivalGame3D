@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://y7lub2xq4baf"]
+
+[ext_resource type="PackedScene" uid="uid://h15cwkrc1lo7" path="res://Utility/interactable.tscn" id="1_63c1a"]
+[ext_resource type="PackedScene" uid="uid://b5xuijchiqljr" path="res://Models/InteractableItems/BulletDamageUpgrade/Pickup Crate.glb" id="1_h6r05"]
+[ext_resource type="Script" path="res://Models/InteractableItems/BulletDamageUpgrade/bullet_damage_upgrade.gd" id="1_m05ww"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ruk0g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2tu0"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.00784314)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 25.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0l68"]
+size = Vector3(0.856009, 0.84236, 0.869598)
+
+[node name="BulletDamageUpgrade" type="StaticBody3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_m05ww")
+
+[node name="Meshes" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
+
+[node name="Pickup Crate" parent="Meshes/MeshInstance3D" instance=ExtResource("1_h6r05")]
+
+[node name="GlowingInsideMesh" type="MeshInstance3D" parent="Meshes"]
+unique_name_in_owner = true
+visible = false
+mesh = SubResource("BoxMesh_ruk0g")
+surface_material_override/0 = SubResource("StandardMaterial3D_l2tu0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00260469, 0)
+shape = SubResource("BoxShape3D_d0l68")
+
+[node name="Interactable" parent="." instance=ExtResource("1_63c1a")]
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]

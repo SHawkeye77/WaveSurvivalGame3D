@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dpeps6cacp8r2"
+path="res://.godot/imported/Anvil.obj-6c614bfd1f8b0f1d6d530e0ba4086a6f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Anvil.obj-6c614bfd1f8b0f1d6d530e0ba4086a6f.mesh"]
+
+source_file="res://Models/Environment/Anvil/Anvil.obj"
+dest_files=["res://.godot/imported/Anvil.obj-6c614bfd1f8b0f1d6d530e0ba4086a6f.mesh", "res://.godot/imported/Anvil.obj-6c614bfd1f8b0f1d6d530e0ba4086a6f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
