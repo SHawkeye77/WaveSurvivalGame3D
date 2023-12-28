@@ -8,10 +8,12 @@ extends CharacterBody3D
 @onready var zombieGroanTimer = get_node("%ZombieGroanTimer")
 var stateMachine = null  # Used to get current animation state of the zombie
 var health = -1
+var brains = -1
+var damage = -1
+var speed = -1
 
 func _ready():
 	stateMachine = animationTree.get("parameters/playback")
-	health = Global.ZOMBIE_STARTING_HEALTH
 	zombieGroanTimer.wait_time = randi_range(Global.ZOMBIE_GROAN_TIMER_MIN, Global.ZOMBIE_GROAN_TIMER_MAX)
 	zombieGroanTimer.start()
 
@@ -24,7 +26,7 @@ func _process(delta):
 			# Navigation
 			navAgent.set_target_position(player.global_position)
 			var nextNavPoint = navAgent.get_next_path_position()
-			velocity = (nextNavPoint - global_position).normalized() * Global.ZOMBIE_SPEED
+			velocity = (nextNavPoint - global_position).normalized() * speed
 			# Looking towards direction of player
 			rotation.y = lerp_angle(rotation.y, atan2(-velocity.x, -velocity.z), delta * Global.ZOMBIE_TURNING_SPEED)
 		"Attack":
@@ -37,6 +39,9 @@ func _process(delta):
 
 	move_and_slide()
 
+func setScale(s):
+	scale = Vector3(s, s, s)
+
 # Returns boolean if the player is in the attack range of the zombie
 func targetInRange():
 	return global_position.distance_to(player.global_position) < Global.ZOMBIE_ATTACK_RANGE
@@ -45,7 +50,7 @@ func targetInRange():
 func hitFinished():
 	if global_position.distance_to(player.global_position) < Global.ZOMBIE_ATTACK_RANGE + Global.ZOMBIE_ATTACK_RANGE_BUFFER:
 		var dir = global_position.direction_to(player.global_position)
-		player.hit(dir, Global.ZOMBIE_ATTACK_DAMAGE)
+		player.hit(dir, damage)
 
 func _on_area_3d_body_part_hit(dam):
 	health -= dam
@@ -55,10 +60,9 @@ func _on_area_3d_body_part_hit(dam):
 func death():
 	wavesSpawner.enemyDied(self)
 	animationTree.set("parameters/conditions/zombieDie", true)  # Triggering the death animation
-	player.zombieDeath()
+	player.zombieDeath(brains)
 	await get_tree().create_timer(4.5).timeout
 	queue_free()
-
 
 func _on_zombie_groan_timer_timeout():
 	zombieGroanAudio.play()

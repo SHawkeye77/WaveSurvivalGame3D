@@ -6,7 +6,7 @@ extends Node3D
 @onready var spawnPoints = get_tree().get_first_node_in_group("SpawnPoints")
 @onready var worldZombies = get_tree().get_first_node_in_group("WorldZombies")
 @onready var startNewWaveTimer = get_node("%StartNewWaveTimer")
-@onready var z = preload("res://Models/Zombie/zombie.tscn") # Zombie
+@onready var zombieScene = preload("res://Models/Zombie/zombie.tscn") # Zombie
 var zombieInstance = null
 var currentWaveIndex = -1
 var currentEnemyIndex = -1
@@ -15,44 +15,29 @@ var currentWaveEnemiesSpawned = []
 @onready var WAVES = [
 	# Wave 1 
 	[
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 15.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
+		["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 15.0],
+		["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 1.0],
 	],
 	# Wave 2
 	[
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
+		["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 5.0],
+		["z2", 0], ["z2", 0], ["z2", 0], ["z2", 0], ["z2", 0], ["z2", 0], ["z2", 0], ["z2", 5.0],
+		["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 5.0],
 	],
 	# Wave 3
 	[
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
+		["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 5.0],
+		["z3", 0], ["z3", 0], ["z3", 0], ["z3", 0], ["z3", 0], ["z3", 0], ["z3", 0], ["z3", 5.0],
+		["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 0], ["z1", 5.0],
 	],
 	# Wave 4
 	[
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 5.0],
-	],
-	# Wave 5
-	[
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 1.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 1.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 1.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 1.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 1.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 1.0],
-		[z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 0], [z, 1.0],
-	],
+		["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 5.0], 
+		["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 5.0], 
+		["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 5.0], 
+		["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 5.0], 
+		["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 0], ["z1", 0], ["z2", 0], ["z3", 5.0], 
+	]
 ]
 
 
@@ -86,16 +71,40 @@ func spawnEnemy():
 	if currentEnemyIndex != len(currentWaveEnemiesData):
 		var enemyInfo = currentWaveEnemiesData[currentEnemyIndex]
 		# Spawning the new enemy
-		var newEnemy = enemyInfo[0].instantiate()
+		var newEnemyType = enemyInfo[0]
+		var newEnemy = zombieScene.instantiate()
 		newEnemy.global_position = getRandomPosition()
-		add_child(newEnemy)
-		currentWaveEnemiesSpawned.append(newEnemy)
+		# Zombie 1
+		if newEnemyType == "z1":
+			newEnemy.setScale(Global.ZOMBIE_1_SCALE)
+			newEnemy.speed = Global.ZOMBIE_1_SPEED
+			newEnemy.damage = Global.ZOMBIE_1_ATTACK_DAMAGE
+			newEnemy.health = Global.ZOMBIE_1_STARTING_HEALTH
+			newEnemy.brains = Global.ZOMBIE_1_BRAIN_AMOUNT
+		elif newEnemyType == "z2":
+			newEnemy.setScale(Global.ZOMBIE_2_SCALE)
+			newEnemy.speed = Global.ZOMBIE_2_SPEED
+			newEnemy.damage = Global.ZOMBIE_2_ATTACK_DAMAGE
+			newEnemy.health = Global.ZOMBIE_2_STARTING_HEALTH
+			newEnemy.brains = Global.ZOMBIE_2_BRAIN_AMOUNT
+		elif newEnemyType == "z3":
+			newEnemy.setScale(Global.ZOMBIE_3_SCALE)
+			newEnemy.speed = Global.ZOMBIE_3_SPEED
+			newEnemy.damage = Global.ZOMBIE_3_ATTACK_DAMAGE
+			newEnemy.health = Global.ZOMBIE_3_STARTING_HEALTH
+			newEnemy.brains = Global.ZOMBIE_3_BRAIN_AMOUNT
+		else:
+			print("ERROR: Spawning enemy of unknown type")
 		# Set up the timer to spawn the next enemy
 		if (enemyInfo[1] == 0): # Setting to small value, otherwise run into some bugs with setting the timer
 			spawnNextEnemyTimer.start(0.001)
 		else:
 			spawnNextEnemyTimer.start(enemyInfo[1])
+		# Spawn the enemy
+		add_child(newEnemy)
+		currentWaveEnemiesSpawned.append(newEnemy)
 		currentEnemyIndex += 1
+
 
 # Called when an enemy dies
 func enemyDied(enemy):

@@ -288,8 +288,8 @@ func raiseWeapon():
 	await get_tree().create_timer(0.3).timeout
 	currentlySwitchingWeapons = false
 
-func zombieDeath():
-	brains += Global.ZOMBIE_BRAIN_AMOUNT
+func zombieDeath(b):
+	brains += b
 	updateUI()
 
 ### Mystery box ###
