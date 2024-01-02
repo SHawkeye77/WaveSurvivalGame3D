@@ -1,6 +1,6 @@
 extends Node2D
 
-var level = "res://screens/world.tscn"
+var level = "res://Screens/world.tscn"
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

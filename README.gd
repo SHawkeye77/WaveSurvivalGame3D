@@ -1,19 +1,7 @@
 """
 TODO
 	- Balance global variables and waves
-	- Cleanup stuff
-		- Remove all/any TODOs in code
-		- Remove all/any print statements in code
-		- Fix "KNOWN BUGS"
-			- If I don't fix any, add them to my website
-		- Add to itch.io 
-		- Add to website
-			- Add a new project page titled "Godot 4 3D Games" and disclose that I use other peoples' assets
-			- Things I could add
-				- More guns
-				- New enemies that act differently (different models, speeds, damage, etc.)
-				- Drops (nuke, extra money, etc.)
-				- Ammo system
+	- Fix "KNOWN BUGS"
 
 NOTES
 	- Tutorials that were helpful

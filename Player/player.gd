@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var waveSpawner = get_tree().get_first_node_in_group("WaveSpawner")
 @onready var head = get_node("%Head")
 @onready var camera = get_node("%Camera3D")
-var endScreen = "res://screens/end_screen.tscn"
+var endScreen = "res://Screens/end_screen.tscn"
 # UI
 @onready var healthBar = get_node("%HealthBar")
 var health = -1
@@ -32,7 +32,7 @@ var bulletDamageIndex = 0
 var currentSpeed = null
 var tBob = 0.0  # Tracks time for head bobbing
 # Bullets
-var bulletScene = load("res://Models/Bullet/bullet.tscn")
+var bulletScene = preload("res://Models/Bullet/bullet.tscn")
 var bulletInstance = null
 var bulletInstance2 = null
 var bulletInstance3 = null

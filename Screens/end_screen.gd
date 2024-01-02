@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var gameSummaryLabel = get_node("%GameSummaryLabel")
-var startScreen = "res://screens/start_screen.tscn"
+var startScreen = "res://Screens/start_screen.tscn"
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
